@@ -644,6 +644,8 @@ spec:
       name: ovn
       tags:
       - edpm_ovn
+    configMaps:
+      - ovn-controller-config
   uid: 1001
 status:
   JobStatus: Succeeded
