@@ -15,3 +15,5 @@ spec:
           name: "osp.edpm.edpm_ovn"
         tags:
           - "edpm_ovn"
+    configMaps:
+      - ovn-controller-config
