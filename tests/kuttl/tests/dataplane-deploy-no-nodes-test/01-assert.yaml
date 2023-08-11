@@ -317,12 +317,6 @@ spec:
       name: Install edpm_chrony
       tags:
       - edpm_chrony
-    - import_role:
-        name: osp.edpm.edpm_ovn
-        tasks_from: install.yml
-      name: Install edpm_ovn
-      tags:
-      - edpm_ovn
     - name: Install edpm_logrotate_crond
       import_role:
         name: osp.edpm.edpm_logrotate_crond
@@ -630,7 +624,7 @@ spec:
     become: true
     gather_facts: false
     hosts: all
-    name: Deploy EDPM Operating System Configure
+    name: Deploy EDPM OVN
     strategy: linear
     tasks:
     - import_role:
