@@ -74,6 +74,10 @@ status:
     reason: Ready
     status: "True"
     type: install-os service ready
+  - message: ovn service ready
+    reason: Ready
+    status: "True"
+    type: ovn service ready
   - message: run-os service ready
     reason: Ready
     status: "True"
@@ -82,10 +86,6 @@ status:
     reason: Ready
     status: "True"
     type: validate-network service ready
-  - message: ovn service ready
-    reason: Ready
-    status: "True"
-    type: ovn service ready
   deployed: true
 ---
 apiVersion: ansibleee.openstack.org/v1alpha1
