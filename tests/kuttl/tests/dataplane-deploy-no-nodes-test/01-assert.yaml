@@ -1,4 +1,11 @@
 ---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ovn-controller-config
+data:
+  ovsdb-config: test-ovn-config
+---
 apiVersion: dataplane.openstack.org/v1beta1
 kind: OpenStackDataPlane
 metadata:
@@ -592,6 +599,17 @@ metadata:
 spec:
   backoffLimit: 6
   extraMounts:
+  - mounts:
+    - mountPath: /var/lib/openstack/configs/ovn/ovsdb-config
+      name: ovn-controller-config
+      subPath: ovsdb-config
+    volumes:
+    - name: ovn-controller-config
+      configMap:
+        items:
+        - key: ovsdb-config
+          path: ovsdb-config
+        name: ovn-controller-config
   - mounts:
     - mountPath: /runner/env/ssh_key
       name: ssh-key
