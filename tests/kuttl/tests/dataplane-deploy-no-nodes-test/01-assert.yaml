@@ -594,10 +594,10 @@ spec:
   extraMounts:
   - mounts:
     - mountPath: /var/lib/openstack/configs/ovn/ovsdb-config
-      name: ovn-controller-config
+      name: ovn-controller-config-0
       subPath: ovsdb-config
     volumes:
-    - name: ovn-controller-config
+    - name: ovn-controller-config-0
       configMap:
         items:
         - key: ovsdb-config
@@ -644,8 +644,8 @@ spec:
       name: ovn
       tags:
       - edpm_ovn
-    configMaps:
-      - ovn-controller-config
+  configMaps:
+    - ovn-controller-config
   uid: 1001
 status:
   JobStatus: Succeeded
