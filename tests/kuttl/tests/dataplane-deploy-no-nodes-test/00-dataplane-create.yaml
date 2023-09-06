@@ -13,6 +13,20 @@ metadata:
 data:
   ovsdb-config: test-ovn-config
 ---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: neutron-external-config
+data:
+  neutron_ovn_metadata_agent.ini: dGVzdC1uZXV0cm9uLW92bi1tZXRhZGF0YS1hZ2VudC1jb25maWc=
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: nova-metadata-compute-config
+data:
+  05-nova-metadata.conf: dGVzdC1ub3ZhLW1ldGFkYXRhLWNvbXB1dGUtY29uZmln
+---
 apiVersion: dataplane.openstack.org/v1beta1
 kind: OpenStackDataPlaneNodeSet
 metadata:
