@@ -376,12 +376,6 @@ spec:
     - mountPath: /var/lib/openstack/configs/ovn/ovsdb-config
       name: ovncontroller-config-0
       subPath: ovsdb-config
-    - mountPath: /var/lib/openstack/configs/ovn/neutron_ovn_metadata_agent.ini
-      name: neutron-external-config-0
-      subPath: neutron_ovn_metadata_agent.ini
-    - mountPath: /var/lib/openstack/configs/ovn/05-nova-metadata.conf
-      name: nova-metadata-compute-config-0
-      subPath: 05-nova-metadata.conf
     volumes:
     - configMap:
         items:
@@ -389,17 +383,27 @@ spec:
           path: ovsdb-config
         name: ovncontroller-config
       name: ovncontroller-config-0
+  - mounts:
+    - mountPath: /var/lib/openstack/configs/ovn/neutron_ovn_metadata_agent.ini
+      name: neutron-external-config-0
+      subPath: neutron_ovn_metadata_agent.ini
+    volumes:
     - secret:
         items:
         - key: neutron_ovn_metadata_agent.ini
           path: neutron_ovn_metadata_agent.ini
-        name: neutron-external-config
+        secretName: neutron-external-config
       name: neutron-external-config-0
+  - mounts:
+    - mountPath: /var/lib/openstack/configs/ovn/05-nova-metadata.conf
+      name: nova-metadata-compute-config-0
+      subPath: 05-nova-metadata.conf
+    volumes:
     - secret:
         items:
         - key: 05-nova-metadata.conf
           path: 05-nova-metadata.conf
-        name: nova-metadata-compute-config
+        secretName: nova-metadata-compute-config
       name: nova-metadata-compute-config-0
   - mounts:
     - mountPath: /runner/env/ssh_key
